@@ -5,14 +5,6 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>gemfireserver</name>
   <description>full gemfire server with maven and spring</description>
-
-
-<repositories>
-      <id>gemfire</id>
-      <name>repo gemfire</name>
-      <url>http://repo.spring.io/libs-release-remote/com/gemstone/gemfire/gemfire/8.2.0/</url>
-    </repository>
-  </repositories>
   
  <build>
     <plugins>
