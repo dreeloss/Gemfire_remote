@@ -40,16 +40,18 @@
       <name>Gemfire Repository</name>
       <url>http://dist.gemstone.com/maven/release</url>
    </repository>
-</repositories>
 
-
-<repositories>
-    </repository>
+     </repository>
       <id>gemfire 2</id>
       <name>repo gemfire</name>
       <url>http://repo.spring.io/libs-release-remote/com/gemstone/gemfire/gemfire/8.2.0/</url>
     </repository>
 </repositories>
+
+
+
+    
+
 
 
  <dependencies>  
