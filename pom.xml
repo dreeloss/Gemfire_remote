@@ -45,7 +45,7 @@
      <repository>
       <id>gemfire 2</id>
       <name>repo gemfire</name>
-      <url>http://repo.spring.io/libs-release-remote/com/gemstone/gemfire/gemfire/8.2.0/</url>
+      <url>http://repo.spring.io/libs-release-remote</url>
     </repository>
 
 </repositories>
