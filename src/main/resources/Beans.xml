@@ -1,0 +1,63 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"	
+	xmlns:gfe="http://www.springframework.org/schema/gemfire"
+	xsi:schemaLocation="http://www.springframework.org/schema/gemfire http://www.springframework.org/schema/gemfire/spring-gemfire.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/context
+    	http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <beans>
+		<util:properties id="gemfire-props">
+			<prop key="log-level">warning</prop>
+			<prop key="locators">localhost:55777</prop>
+			<prop key="mcast-port">0</prop>
+		  	<prop key="enable-network-partition-detection">true</prop>
+		  	<prop key="name">#{systemProperties.servername}</prop>
+		</util:properties>
+
+		<gfe:cache properties-ref="gemfire-props" />
+
+		<!-- Note the SpEL expression here used to dynamically configure an available 
+			port in the given range -->	
+		<gfe:cache-server port="#{systemProperties.port}"  auto-startup="true" id="server1"/>
+	</beans>
+	
+   <beans>
+    <gfe:partitioned-region name="Securities" id="region-with-one-listener" persistent="true"
+         recovery-delay="6000" startup-recovery-delay="5000" copies="1">
+        <gfe:cache-listener ref="c-listener"/>
+           <gfe:async-event-queue-ref bean="AEQ"/>  
+       <!--   <gfe:disk-store queue-size="50" auto-compact="true" max-oplog-size="10" id='firstdisk' time-interval="9999">
+        <gfe:disk-dir location="." max-size="999"/>
+        </gfe:disk-store>
+        -->
+    </gfe:partitioned-region>
+
+    <bean id="c-listener" class=" org.springframework.data.gemfire.SimpleCacheListener"/>
+    
+ </beans>
+
+   <beans>
+    <gfe:partitioned-region name="SECURITY_PRICE" id="SECURITY_PRICE_ID" persistent="true"
+         recovery-delay="6000" startup-recovery-delay="5000" copies="1">
+       <!--   <gfe:disk-store queue-size="50" auto-compact="true" max-oplog-size="10" id='firstdisk' time-interval="9999">
+        <gfe:disk-dir location="." max-size="999"/>
+        </gfe:disk-store>
+        -->
+    </gfe:partitioned-region>
+ </beans>
+   
+   
+   <beans>
+    <gfe:async-event-queue id="AEQ" batch-size="100" persistent="true" 
+         maximum-queue-memory="50">
+    <gfe:async-event-listener>
+        <bean class="org.springframework.data.gemfire.AsyncEventSecurities"/>
+    </gfe:async-event-listener>
+	</gfe:async-event-queue>
+    </beans>
+    
+</beans>    
