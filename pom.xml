@@ -2,7 +2,7 @@
 	  <modelVersion>4.0.0</modelVersion>
   <groupId>com.poc.server</groupId>
   <artifactId>gemfireserver</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.2-SNAPSHOT</version>
   <name>gemfireserver</name>
   <description>full gemfire server with maven and spring</description>
 
@@ -13,7 +13,7 @@
          <id>nexus</id>   
          <name>nexus repository</name>
 
-         <url>http://10.105.65.105:8081/nexus/service/local/staging/deploy/maven2</url>
+         <url>http://10.105.65.205:8081/nexus/service/local/staging/deploy/maven2</url>
 
     </repository>  
   
@@ -22,7 +22,7 @@
        <id>nexus</id>   
        <name>nexus</name>
 
-       <url>http://10.105.65.105:8081/nexus/content/repositories/snapshots</url>
+       <url>http://10.105.65.205:8081/nexus/content/repositories/snapshots</url>
 
   </snapshotRepository>  
   
