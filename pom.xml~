@@ -5,28 +5,25 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>gemfireserver</name>
   <description>full gemfire server with maven and spring</description>
+
   <distributionManagement>
     
     
      <repository>
          <id>nexus</id>   
          <name>nexus repository</name>
-<<<<<<< HEAD
+
          <url>http://localhost:8080/nexus/service/local/staging/deploy/maven2</url>
-=======
-         <url>http://10.105.65.205:8081/nexus/service/local/staging/deploy/maven2</url>
->>>>>>> 2cf65a0d7ba5794cd2bba7e065b552b5a7f1ff8a
+
     </repository>  
   
   
   <snapshotRepository>
        <id>nexus</id>   
        <name>nexus</name>
-<<<<<<< HEAD
+
        <url>http://localhost:8080/nexus/content/repositories/snapshots</url>
-=======
-       <url>http://10.105.65.205:8081/nexus/content/repositories/snapshots</url>
->>>>>>> 2cf65a0d7ba5794cd2bba7e065b552b5a7f1ff8a
+
   </snapshotRepository>  
   
   </distributionManagement>
