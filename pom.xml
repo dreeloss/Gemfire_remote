@@ -14,14 +14,14 @@
      <repository>
          <id>nexus</id>   
          <name>nexus repository</name>
-         <url>http://localhost:8000/nexus/service/local/staging/deploy/maven2</url>
+         <url>http://localhost:8080/nexus/service/local/staging/deploy/maven2</url>
     </repository>  
   
   
   <snapshotRepository>
        <id>nexus</id>   
        <name>nexus</name>
-       <url>http://localhost:8000/nexus/content/repositories/snapshots</url>
+       <url>http://localhost:8080/nexus/content/repositories/snapshots</url>
   </snapshotRepository>  
   
   </distributionManagement>
